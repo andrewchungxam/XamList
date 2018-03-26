@@ -17,7 +17,7 @@ namespace XamList
 
             var (contactsToPatchToLocalDatabase, contactsToPatchToRemoteDatabase) = GetModelsThatNeedUpdating(contactListFromLocalDatabase, contactListFromRemoteDatabase, contactsInBothDatabases);
 
-            await SaveContacts(contactsToPatchToRemoteDatabase,
+            await SaveContacts(contactsToPatchToRemoteDatabase, contactsToPatchToLocalDatabase,
                                     contactsInRemoteDatabaseButNotStoredLocally.Concat(contactsToPatchToLocalDatabase).ToList(),
                                     contactsInLocalDatabaseButNotStoredRemotely).ConfigureAwait(false);
         }
